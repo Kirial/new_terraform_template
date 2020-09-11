@@ -24,7 +24,7 @@ jobs:
     name: launchpad_deploy
     runs-on: ubuntu-latest
     container:
-      image: sscspccloudnuage/rover:2009.0812
+      image: aztfmod/rover:2009.0210
       options: --user 0
 
     steps:
@@ -45,6 +45,7 @@ jobs:
           /tf/rover/rover.sh /tf/caf/${{ env.L0_BLUEPRINT }}/code apply \
             -launchpad \
             -env ${{ env.ENV_NAME }} \
+            -tfstate ${{ env.L0_BLUEPRINT }}_${{ env.ENV_NAME }} \
             -var-file=/tf/caf/${{ env.L0_BLUEPRINT }}/environments/${{ env.ENV_NAME }}.tfvars
 
   base_deploy:
@@ -52,7 +53,7 @@ jobs:
     needs: launchpad_deploy
     runs-on: ubuntu-latest
     container:
-      image: sscspccloudnuage/rover:2009.0812
+      image: aztfmod/rover:2009.0210
       options: --user 0
 
     steps:
@@ -83,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: sscspccloudnuage/rover:2009.0812
+      image: aztfmod/rover:2009.0210
       options: --user 0
 
     steps:
@@ -115,7 +116,7 @@ jobs:
     if: always()
 
     container:
-      image: sscspccloudnuage/rover:2009.0812
+      image: aztfmod/rover:2009.0210
       options: --user 0
 
     steps:
