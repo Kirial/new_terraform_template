@@ -3,9 +3,9 @@
 #
 # Hope a future update to the rover can address this in the future.
 
-env     = "ScSc"
-group   = "CIO"
-project = "ESLZ_vnext13"
+env     = "Dipl"
+group   = "JK"
+project = "Project"
 
 convention = "passthrough"
 location = "canadacentral"

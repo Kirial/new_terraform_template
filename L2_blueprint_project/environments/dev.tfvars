@@ -8,9 +8,9 @@ tags = {
   "branch"            = "<branch name>"
 }
 
-env     = "ScSc"
-group   = "CIO"
-project = "ESLZ_vnext13"
+env     = "Dipl"
+group   = "JK"
+project = "Project"
 
 location = "canadacentral"
 

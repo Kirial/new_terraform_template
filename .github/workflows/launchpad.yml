@@ -11,20 +11,20 @@ env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-  RBAC_OWNER_NAME: ${{ secrets.RBAC_OWNER_NAME }}
+  RBAC_OWNER_NAME: ${{ secrets.ARM_CLIENT_ID }}
   TF_CLI_ARGS_apply: '-parallelism=30'
   TF_CLI_ARGS_destroy: '-parallelism=30 -auto-approve -refresh=false'
   L0_BLUEPRINT: 'L0_blueprint_launchpad'
   L1_BLUEPRINT: 'L1_blueprint_base'
   L2_BLUEPRINT: 'L2_blueprint_project'
-  ENV_NAME: 'cicd'
+  ENV_NAME: 'dev'
 
 jobs:
   launchpad_deploy:
     name: launchpad_deploy
     runs-on: ubuntu-latest
     container:
-      image: aztfmod/rover:2007.0108
+      image: sscspccloudnuage/rover:2009.0812
       options: --user 0
 
     steps:
@@ -53,7 +53,7 @@ jobs:
     needs: launchpad_deploy
     runs-on: ubuntu-latest
     container:
-      image: aztfmod/rover:2007.0108
+      image: sscspccloudnuage/rover:2009.0812
       options: --user 0
 
     steps:
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: aztfmod/rover:2007.0108
+      image: sscspccloudnuage/rover:2009.0812
       options: --user 0
 
     steps:
@@ -116,7 +116,7 @@ jobs:
     if: always()
 
     container:
-      image: aztfmod/rover:2007.0108
+      image: sscspccloudnuage/rover:2009.0812
       options: --user 0
 
     steps:
