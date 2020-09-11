@@ -45,7 +45,6 @@ jobs:
           /tf/rover/rover.sh /tf/caf/${{ env.L0_BLUEPRINT }}/code apply \
             -launchpad \
             -env ${{ env.ENV_NAME }} \
-#            -tfstate ${{ env.L0_BLUEPRINT }}_${{ env.ENV_NAME }} \
             -var-file=/tf/caf/${{ env.L0_BLUEPRINT }}/environments/${{ env.ENV_NAME }}.tfvars
 
   base_deploy:
